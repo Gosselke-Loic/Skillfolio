@@ -1,0 +1,28 @@
+<section>
+    <mat-card class="utility">
+        <mat-form-field appearance="legacy" color="accent">
+            <mat-label>Search</mat-label>
+            <input matInput id="search" [(ngModel)]="search" type="text">
+        </mat-form-field>
+        
+        <span class="utility__flex-spacer"></span>
+        <button class="utility__button" mat-raised-button color="accent" [routerLink]="['superadmin']"> SuperAdmin access </button>
+    </mat-card>
+</section>
+
+<section class="grid" *ngIf="allUsers$ | async as users">
+    <div *ngFor="let item of users | customFilter: 'name,lastname,departament,commentary' : search" [class.selected]="item._id === selectedId">
+        <mat-card class="card">
+            <mat-card-title class="card__title">{{ item.name }} {{ item.lastname }}</mat-card-title>
+            <mat-card-content class="card__content">
+                <p>Departament: {{ item.departament }}</p>
+                <p>Commentary: {{ item.commentary }}</p>
+            </mat-card-content>
+            <mat-card-actions class="card__actions">
+                <button class="card__actions--margin" color="warn" (click)="openDialog(item.name, item._id, item.lastname)" mat-raised-button>Delete</button>
+                <button color="accent" mat-raised-button (click)="openDialog2(item._id, item.name, item.lastname)">Add Comment</button>
+                <button color="primary" [routerLink]="['update', item._id]" mat-raised-button>Update</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</section>

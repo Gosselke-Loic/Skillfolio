@@ -1,0 +1,58 @@
+<section class="profile" *ngIf="dataFromParams">
+    <mat-card class="profile__card">
+        <mat-card-header>
+            <img mat-card-avatar [src]="dataFromParams.entity.file" style="background-size: cover;" alt="profile images">
+            <mat-card-title>
+                {{ dataFromParams.entity.name }} 
+                {{ dataFromParams.entity.lastname }} 
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{ dataFromParams.entity.email }}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="profile__card__content">
+            <p>
+                <span class="profile__card--span">Age :</span> {{ dataFromParams.entity.age }}
+            </p>
+            <mat-divider class="profile__card--spacer"></mat-divider>
+
+            <p>
+               <span class="profile__card--span">Year of promotion:</span> {{ dataFromParams.entity.year }}
+            </p>
+            <mat-divider class="profile__card--spacer"></mat-divider>
+
+            <p>
+                <span class="profile__card--span">Language/s:</span> {{ dataFromParams.entity.language }}
+            </p>
+            <mat-divider class="profile__card--spacer"></mat-divider>
+
+            <p>
+                <span class="profile__card--span">Departament:</span> {{ dataFromParams.entity.departament }}
+            </p>
+            <mat-divider class="profile__card--spacer"></mat-divider>
+
+            <p>
+                <span class="profile__card--span">Research job/stage:</span> {{ dataFromParams.entity.research }}
+            </p>
+            <mat-divider class="profile__card--spacer"></mat-divider>
+
+            <p>
+                <span class="profile__card--span">Job Coach:</span> {{ dataFromParams.entity.jobCoach }}
+            </p>
+            <mat-divider class="profile__card--spacer"></mat-divider>
+
+            <p>
+                <span class="profile__card--span">Coach Cordinator: </span> {{ dataFromParams.entity.coachCordinator }}
+            </p>
+            <mat-divider class="profile__card--spacer"></mat-divider>
+
+            <p>
+                <span class="profile__card--span">Teacher: </span> {{ dataFromParams.entity.teacher }}
+            </p>
+        </mat-card-content>
+        <mat-card-actions class="profile__card__actions">
+            <button mat-raised-button color="accent" [routerLink]="['update', dataFromParams.entity._id]">Update</button>
+        </mat-card-actions>
+    </mat-card>
+</section>
+<router-outlet></router-outlet>

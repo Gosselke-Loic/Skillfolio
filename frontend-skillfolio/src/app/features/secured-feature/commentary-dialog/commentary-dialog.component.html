@@ -1,0 +1,12 @@
+<h1 mat-dialog-title> Comment to {{ data.name }} {{ data.lastname }}</h1>
+<div mat-dialog-content class="dialog__content">
+    <mat-form-field class="dialog__content__form">
+        <mat-label class="dialog__content__form--label">Add a comment</mat-label>
+        <textarea [(ngModel)]="data.commentary" matInput #message maxlength="256"></textarea>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog__actions">
+    <button color="accent" mat-button (click)="onNoClick()">close</button>
+    <button color="warn" mat-button [mat-dialog-close]="data">Send</button>
+</div>

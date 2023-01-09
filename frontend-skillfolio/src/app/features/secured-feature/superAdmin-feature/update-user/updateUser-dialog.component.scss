@@ -1,0 +1,43 @@
+.card {
+    background-color: rgb(100, 100, 100);
+    border: 2px solid black;
+    border-radius: 1%;
+    padding: 1rem;
+
+    .card__content {
+        display: flex;
+        justify-content: center;
+        
+        .card__content--input {
+            min-width: 150px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .card__content--select {
+            margin-right: 0.5rem;
+            width: 100%;
+        }
+
+        .card__content--spacer{
+            margin: 1rem 0 1rem 0;
+            background-color: indigo;
+        }
+
+        .card__content__center {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .card__button {
+        margin-top: 0.5rem;
+        display: flex;
+        justify-content: space-evenly;
+
+        .card__button--style {
+            padding: 0 1rem 0 1rem;
+            margin-right: 1rem;
+        }
+    }
+}

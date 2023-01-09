@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Are you sure to delete?</h1>
+<div mat-dialog-content>
+  <p>Name: {{ data.email }}</p>
+</div>
+<div mat-dialog-actions class="delete__dialog__actions">
+  <button color="accent" mat-raised-button (click)="onNoClick()">close</button>
+  <button color="warn" mat-raised-button [mat-dialog-close]="data.id">delete</button>
+</div>

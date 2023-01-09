@@ -1,0 +1,27 @@
+.navbar {
+    background-color: transparent;
+    
+    .navbar__brand {
+        font-size: 25px;
+        color: black;
+        font-style: italic;
+    }
+
+    .navbar__grow-spacer{
+        flex: 1  auto;
+    }
+    
+    .navbar__spacer {
+        margin-left: 0.20rem;
+        margin-right: 0.5rem;
+    }
+ 
+    .navbar__logout__break {
+        display: inline-block;
+
+        .color { 
+            margin: 0 1rem 0 0.5rem;
+            color: black;
+        } 
+    }
+}

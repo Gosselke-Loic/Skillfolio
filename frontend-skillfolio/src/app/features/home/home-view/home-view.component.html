@@ -1,0 +1,67 @@
+<section class="section-router">
+    <mat-card class="section-router__card" *ngIf="role$ |async as role">
+        <ng-container *ngIf="role === 'enterprise'; else second">
+            <a
+            mat-raised-button
+            color="primary"
+            [routerLink]="homeRouter[0].link"
+            >
+                {{ homeRouter[0].label }}
+            </a>
+        </ng-container>
+        <ng-template #second>
+            <ng-container *ngIf="role === 'user'; else third">
+                <a
+                    mat-raised-button
+                    color="primary"
+                    [routerLink]="homeRouter[1].link"
+                    >
+                    {{ homeRouter[1].label }}
+                </a>
+            </ng-container>
+        </ng-template>
+        <ng-template #third>
+            <h2>Welcome Admin</h2>
+        </ng-template>
+    </mat-card>
+</section>
+<section class="section-grid">
+    <div class="section-grid__card">
+        <article class="card">
+            <mat-card-title class="card__title--style">
+                Bienvenue a Realise
+            </mat-card-title>
+            <mat-card-subtitle class="card__subtitle--style">(Version Alpha)</mat-card-subtitle>
+            <mat-card-content>
+                <p class="card__paragraph--style">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quia nam voluptatum. Adipisci iusto odit hic magni porro expedita voluptate. Reprehenderit perspiciatis ipsum, omnis unde doloremque voluptas voluptatibus vel repellat.</p>
+                <p class="card__paragraph--style">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, laboriosam dolores minima nisi cumque id et tempore autem blanditiis ab illo exercitationem deserunt, voluptatum illum unde nesciunt ratione eaque voluptatem.</p>     
+            </mat-card-content>
+        </article>
+    </div>
+    <div class="section-grid__card2">
+        <article class="card2">
+            <mat-card-title class="card2__title--style">
+                notice 1
+            </mat-card-title>
+            <mat-card-content class="card2__paragraph--style">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio at fugiat beatae aliquid praesentium, enim est asperiores tenetur modi corporis sunt delectus. Numquam voluptatum explicabo eius, tenetur blanditiis quo reiciendis nobis accusantium cum totam ipsum?</p>
+            </mat-card-content>
+        </article>
+        <article class="card2">
+            <mat-card-title class="card2__title--style">
+                notice 2
+            </mat-card-title>
+            <mat-card-content class="card2__paragraph--style">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio at fugiat beatae aliquid praesentium, enim est asperiores tenetur modi corporis sunt delectus. Numquam voluptatum explicabo eius, tenetur blanditiis quo reiciendis nobis accusantium cum totam ipsum?</p>
+            </mat-card-content>
+        </article>
+        <article class="card2">
+            <mat-card-title class="card2__title--style">
+                notice 3
+            </mat-card-title>
+            <mat-card-content class="card2__paragraph--style">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio at fugiat beatae aliquid praesentium, enim est asperiores tenetur modi corporis sunt delectus. Numquam voluptatum explicabo eius, tenetur blanditiis quo reiciendis nobis accusantium cum totam ipsum?</p>
+            </mat-card-content>
+        </article>
+    </div>
+</section>

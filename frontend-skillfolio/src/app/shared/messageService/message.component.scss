@@ -1,0 +1,38 @@
+.card__placement {
+    position: absolute;
+    z-index: 101;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    overflow: hidden; 
+
+    .card{
+        min-height: 10%;
+        width: 15%;
+
+        .card__title {
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-decoration: underline;
+            color: rgb(255, 217, 0);
+        }
+
+        .card__content {
+            color: beige;
+            font-size: larger;
+            font-weight: bold;
+            letter-spacing: 2px;   
+        }
+
+        .card__actions {
+            display: flex;
+            justify-content: center;
+
+            .card__actions__button {
+                padding: 0;
+            }
+        }
+    }
+}

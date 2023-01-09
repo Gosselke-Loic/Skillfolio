@@ -1,0 +1,29 @@
+<section>
+    <mat-card class="utility">
+        <mat-form-field appearance="legacy" color="accent">
+            <mat-label>Search</mat-label>
+            <input matInput type="search" [(ngModel)]="search" type="text">
+        </mat-form-field>
+
+        <span class="utility__flex-spacer"></span>
+        <button mat-raised-button class="utility__button" [routerLink]="goBack.link" color="primary">{{ goBack.label }}</button>
+        <button mat-raised-button class="utility__button" color="accent" (click)="openDialog3()">New user</button>
+    </mat-card>
+</section>
+
+<section class="grid" *ngIf="allUsers$ | async as users">
+    <div *ngFor="let item of users | customFilter: 'name,email,type,role': search" [class.selected]="item.id === selectedId">
+        <mat-card class="card">
+            <mat-card-title class="card__title"> {{ item.name }} </mat-card-title>
+            <mat-card-content class="card__content">
+                <p> Email: {{ item.email }} </p>
+                <p> Type: {{ item.type }} </p>
+                <p> Role: {{ item.role }} </p>
+            </mat-card-content>
+            <mat-card-actions class="card__actions">
+                <button mat-raised-button color="warn" (click)="openDialog(item.email, item.id)"> Delete </button>
+                <button mat-raised-button color="primary" (click)="openDialog2(item)"> Update </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</section>

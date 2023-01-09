@@ -1,0 +1,37 @@
+<header>
+    <mat-toolbar class="navbar">
+
+        <span class="navbar__brand">Realise</span>
+        <span class="navbar__grow-spacer"></span>
+
+        <a class="navbar__spacer"
+        mat-raised-button
+        *ngFor="let item of menuItems"
+        #rla="routerLinkActive"
+        routerLinkActive
+        [attr.aria.checked]="rla.isActive"
+        [routerLink]="item.link"
+        >
+            {{ item.label }}
+        </a>
+
+        <div class="navbar__logout" *ngIf="authUser$ | async as user; else login"> 
+            <button class="navbar__logout__break" (click)="logout()" mat-raised-button>
+                Logout
+            </button>
+            <div class="navbar__logout__break">
+                <p class="color">{{ user.name }}</p>
+            </div>
+        </div>
+
+        <ng-template #login>
+            <a
+            routerLink="/login"
+            mat-raised-button
+            >
+                Login
+            </a>
+        </ng-template>
+        
+    </mat-toolbar>
+</header>

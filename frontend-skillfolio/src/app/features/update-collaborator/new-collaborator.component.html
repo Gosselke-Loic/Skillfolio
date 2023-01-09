@@ -1,0 +1,122 @@
+<div class="card--form" role="main" *ngIf="dataFromParams$">
+    <div class="card">
+        <div class="card__content">
+            <form novalidate autocomplete="off" [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)">
+
+                <mat-form-field class="card__content--input" appearance="fill">
+                    <mat-label for="file">File (url)</mat-label>
+                    <input matInput type="url" id="file" formControlName="file">
+                    <mat-hint align="start" *ngIf="file!.errors && file!.touched">
+                        <strong>Only Https accepted</strong>
+                    </mat-hint>
+                </mat-form-field>
+                <mat-divider class="card__content--spacer"></mat-divider>
+                
+                <mat-form-field class="card__content--input" appearance="fill">
+                    <mat-label for="name">Name</mat-label>
+                    <input matInput type="text" id="name" formControlName="name" #message maxlength="25" required>
+                    <mat-hint align="start" *ngIf="name!.errors && name!.touched">
+                        <strong>Name is required</strong>
+                    </mat-hint>
+                    <mat-hint align="end">{{message.value.length}} / 25</mat-hint>
+               </mat-form-field>
+               <mat-divider class="card__content--spacer"></mat-divider>
+    
+               <mat-form-field class="card__content--input" appearance="fill">
+                    <mat-label for="lastname">Lastname</mat-label>
+                    <input matInput type="text" name="lastname" formControlName="lastname" #message1 maxlength="25" required>
+                    <mat-hint align="start" *ngIf="lastname!.errors && lastname!.touched">
+                        <strong>Lastname is required</strong>
+                    </mat-hint>
+                    <mat-hint align="end">{{message1.value.length}} / 25</mat-hint>
+                </mat-form-field>
+                <mat-divider class="card__content--spacer"></mat-divider>
+    
+                <mat-form-field class="card__content--select" appearance="fill">
+                    <mat-label for="age">Age</mat-label>
+                    <input matInput type="number" name="age" formControlName="age" min="18" max="99" required>
+                    <mat-hint align="start" *ngIf="age!.errors && age!.touched">
+                        <strong>Age is required or invalid</strong>
+                    </mat-hint>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label for="year">Year promotion</mat-label>
+                    <input matInput name="year" formControlName="year" type="number" min="1984" max="2022" required>
+                    <mat-hint align="start" *ngIf="year!.errors && year!.touched">
+                        <strong>Year is required or invalid</strong>
+                    </mat-hint>
+                </mat-form-field>
+                <mat-divider class="card__content--spacer"></mat-divider>
+
+                <mat-form-field class="card__content--input" appearance="fill">
+                    <mat-label for="language">Language/s</mat-label>
+                    <input matInput name="language" formControlName="language" type="text" required>
+                    <mat-hint align="start" *ngIf="language!.errors && language!.touched">
+                        <strong>Language/s are required</strong>
+                    </mat-hint>
+                </mat-form-field>
+                <mat-divider class="card__content--spacer"></mat-divider>
+    
+                <mat-form-field class="card__content--select" appearance="fill">
+                    <mat-label>Departament</mat-label>
+                    <input matInput name="departament" formControlName="departament" type="text" required>
+                    <mat-hint align="start" *ngIf="departament!.touched && departament!.errors">
+                        <strong>Departament is required</strong>
+                    </mat-hint>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Research</mat-label>
+                    <mat-select formControlName="research" required>
+                        <mat-option *ngFor="let item of initialValues.research" [value]="item">
+                            {{ item }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-divider class="card__content--spacer"></mat-divider>
+    
+                <mat-form-field class="card__content--select" appearance="fill">
+                    <mat-label>Jobcoach</mat-label>
+                    <mat-select formControlName="jobCoach" required>
+                        <mat-option *ngFor="let item of initialValues.jobCoach" [value]="item">
+                            {{ item }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill">
+                    <mat-label>CoachCordinator</mat-label>
+                    <mat-select formControlName="coachCordinator" required>
+                        <mat-option *ngFor="let item of initialValues.coachCordinator" [value]="item">
+                            {{ item }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-divider class="card__content--spacer"></mat-divider>
+
+                <mat-form-field class="card__content__center" appearance="fill">
+                    <mat-label>Teacher</mat-label>
+                    <mat-select formControlName="teacher" required>
+                        <mat-option *ngFor="let item of initialValues.teacher" [value]="item">
+                            {{ item }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <div class="card__button">
+                    <button type="submit" [disabled]="!profileForm.valid" class="card__button--style" mat-raised-button>Create</button>
+                    <div *ngIf="profileForm.status === 'VALID'">
+                        <p style="color: greenyellow;">Status: {{ profileForm.status }}</p>
+                    </div>
+                    <div *ngIf="profileForm.status === 'INVALID'">
+                        <p style="color: red;">Status: {{ profileForm.status }}</p>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+        <button class="card__close" (click)="redirect()" mat-raised-button color="warn"> Close </button>
+    </div>
+    
+</div>

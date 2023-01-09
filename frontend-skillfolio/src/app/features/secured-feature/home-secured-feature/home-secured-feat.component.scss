@@ -1,0 +1,48 @@
+.utility {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+
+    mat-form-field.mat-form-field {
+        width: 30%;
+    }
+
+    .utility__flex-spacer {
+        flex: 1 auto;
+    }
+
+    .utility__button {
+        margin-left: 0.5rem;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin: 1rem 1rem 1rem 1rem;
+    gap: 1rem;
+
+    .card {
+
+        .card__title {
+            text-align: center;
+        }
+
+        .card__content {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .card__actions {
+            display: flex;
+            justify-content: space-evenly;
+
+            .card__actions--margin {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    
+}

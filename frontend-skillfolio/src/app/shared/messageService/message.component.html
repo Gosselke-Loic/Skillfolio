@@ -1,0 +1,11 @@
+<div *ngIf="messageService.messages.length" class="card__placement">
+    <mat-card class="card">
+        <mat-card-title class="card__title">Message</mat-card-title>
+        <mat-card-content>
+            <p *ngFor="let message of messageService.messages" class="card__content">{{ message }}</p>
+        </mat-card-content>
+        <mat-card-actions class="card__actions">
+            <button class="card__actions__button" (click)="messageService.clear()" mat-raised-button color="warn">Clear</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

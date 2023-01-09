@@ -1,0 +1,35 @@
+<div class="ifError" *ngIf="isError$ | async">
+    <h2>Server Error: Try again later</h2>
+</div>
+
+<div class="card--form" role="main">
+    <div class="card">
+        <div class="card__content">
+            <form novalidate autocomplete="off" [formGroup]="profileForm" id="profileForm" (ngSubmit)="onSubmit()">
+
+                <mat-form-field class="card__content--input" appearance="fill">
+                    <mat-label for="email">Email</mat-label>
+                    <input matInput type="email" id="email" formControlName="email" #message maxlength="25" required>
+                    <mat-hint align="start" *ngIf="email!.errors && email!.touched">
+                        <strong>email is required</strong>
+                    </mat-hint>
+                    <mat-hint align="end">{{message.value.length}} / 25</mat-hint>
+                </mat-form-field>
+
+                <mat-divider class="card__content--spacer"></mat-divider>
+
+                <mat-form-field class="card__content--input" appearance="fill">
+                    <mat-label for="password" >Password</mat-label>
+                    <input matInput type="password" id="password" formControlName="password" required>
+                    <mat-hint align="start" *ngIf="password!.errors && password!.touched">
+                        <strong>password is required</strong>
+                    </mat-hint>
+                </mat-form-field>
+
+                <div class="card__button">
+                    <button type="submit" [disabled]="!profileForm.valid" class="card__button--style" mat-raised-button>Login</button>
+                </div> <mat-spinner *ngIf="isloading$ | async"></mat-spinner>
+            </form>
+        </div>
+    </div>
+</div>
