@@ -9,8 +9,8 @@ export const environment = {
 
     setting: {
         auth: {
-            accessTokenKey: 'DoPS3ZrQjM',
-            refreshTokenKey: 'SfrSDFsf35D'
+            accessTokenKey: ---,
+            refreshTokenKey: ---
         },
     },
 };
